@@ -1,2 +1,2 @@
 # Kipsiro-careers-website
- a practice website that runs flask to help the common mwananchi find jobs
+ a practice E-commerce website that uses django.
