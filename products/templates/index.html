@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
 
-{% block content%}
-
+{% block content %}
     <h1>Products</h1>
-    <div class="row">
+    <div class="row row-cols-1 row-cols-md-3 g-4">  <!-- Improved grid system -->
          {% for product in products %}
             <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ product.image_url }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="{{ product.name }}">Card title</h5>
-                        <p class="card-text"> Add to cart </p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                <div class="card h-100">  <!-- h-100 makes cards equal height -->
+                    <img src="{{ product.image_url }}"
+                         class="card-img-top img-fluid"
+                         style="height: 200px; object-fit: cover;"  <!-- Fixed height with proper cropping -->
+                    <div class="card-body d-flex flex-column">  <!-- Flex layout for content -->
+                        <h5 class="card-title">{{ product.name }}</h5>  <!-- Fixed class name -->
+                        <p class="card-text">${{ product.price }}</p>  <!-- Added price example -->
+                        <div class="mt-auto">  <!-- Pushes button to bottom -->
+                            <a href="#" class="btn btn-primary">Add to cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
          {% endfor %}
     </div>
-
 {% endblock %}
